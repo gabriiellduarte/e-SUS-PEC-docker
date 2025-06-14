@@ -11,6 +11,7 @@ filename=''
 https_domain=''
 use_external_db=false
 production=false
+training=false
 
 # Exibe ajuda do script
 if [ "$1" = "--help" ]; then
@@ -34,7 +35,7 @@ while getopts "d:f:h:cpe" flag; do
         f) filename=${OPTARG} ;;
         h) https_domain=${OPTARG} ;;
         c) cache='--no-cache' ;;
-        p) production=false ;;
+        p) production=true ;;
         e) use_external_db=true ;;
         \?)
             echo "${RED}Opção inválida! Utilize --help para ajuda.${NC}"
