@@ -10,7 +10,7 @@ cache=''
 filename=''
 https_domain=''
 use_external_db=false
-production=false
+production=true
 training=false
 
 # Exibe ajuda do script
