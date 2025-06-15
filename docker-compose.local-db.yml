@@ -37,5 +37,6 @@ services:
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
       - POSTGRES_PASSWORD=${POSTGRES_PASS:-pass}
       - POSTGRES_DB=${POSTGRES_DB:-esus}
+      - TZ=${TZ}
     volumes:
       - ./esus-data/db:/var/lib/postgresql/data

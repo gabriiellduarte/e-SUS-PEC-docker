@@ -141,11 +141,13 @@ else
         --build-arg JAR_FILENAME=$jar_filename \
         --build-arg HTTPS_DOMAIN=$https_domain \
         --build-arg DB_URL=$jdbc_url \
-        --build-arg TRAINING=$training"
+        --build-arg TRAINING=$training \
+        --build-arg TZ=$TZ"
     docker compose --progress plain -f docker-compose.local-db.yml build $cache \
         --build-arg JAR_FILENAME=$jar_filename \
         --build-arg DB_URL=$jdbc_url \
         --build-arg TRAINING=$training \
-        --build-arg HTTPS_DOMAIN=$https_domain
+        --build-arg HTTPS_DOMAIN=$https_domain \
+        --build-arg TZ=$TZ
     docker compose -f docker-compose.local-db.yml up -d
 fi
