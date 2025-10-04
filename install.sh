@@ -49,8 +49,8 @@ echo "*******************\n\n${NC}"
 # Executa o comando
 
 # esse comando gerava erro de -console nao reconhecido
-#java -jar ${JAR_FILENAME} -console ${ARGS} -continue
-java -jar ${JAR_FILENAME} ${ARGS}
+java -jar ${JAR_FILENAME} -console ${ARGS} -continue
+#java -jar ${JAR_FILENAME} ${ARGS}
 
 
 # Verificando se a variável de treinamento existe, caso sim, executa o SQL
