@@ -60,7 +60,9 @@ export COMPOSE_HTTP_TIMEOUT=8000
 # Carrega variáveis de ambiente do .env
 echo "Carregando variáveis de .env..."
 if [ -f ".env" ]; then
-    export $(grep -v '^#' .env | xargs)
+    set -a
+    . ./.env
+    set +a
     filename=${filename:-$FILENAME}
     https_domain=${https_domain:-$HTTPS_DOMAIN}
     echo "${GREEN}Arquivo .env carregado com sucesso.${NC}"
