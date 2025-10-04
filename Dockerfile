@@ -83,10 +83,6 @@ ENV POSTGRES_PASS=${POSTGRES_PASS}
 ENV POSTGRES_USER=${POSTGRES_USER}
 ENV HTTPS_DOMAIN=${HTTPS_DOMAIN}
 
-# Instalar wget e baixar o JAR diretamente
-RUN apt-get update && apt-get install -y wget \
-    && wget -O ${JAR_FILENAME} ${JAR_URL}   
-
 # criando diretórios para uso posterior
 RUN mkdir -p /opt/e-SUS/webserver/chaves
 RUN mkdir /backups
