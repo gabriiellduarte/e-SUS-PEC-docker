@@ -96,7 +96,7 @@ if echo "$filename" | grep -q '^https://'; then
         echo "O arquivo $jar_filename já existe. Não será baixado novamente."
     else
         echo "Baixando o arquivo $jar_filename..."
-        wget -O "$save_path" "$filename"
+        wget --progress=bar:force -O "$save_path" "$filename"
         echo "${GREEN}Download concluído.${NC}"
     fi
 else
