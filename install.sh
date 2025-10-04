@@ -47,7 +47,10 @@ echo "java -jar ${JAR_FILENAME} -console ${ARGS} -continue"
 echo "*******************\n\n${NC}"
 
 # Executa o comando
-java -jar ${JAR_FILENAME} -console ${ARGS} -continue
+
+# esse comando gerava erro de -console nao reconhecido
+#java -jar ${JAR_FILENAME} -console ${ARGS} -continue
+java -jar ${JAR_FILENAME} ${ARGS}
 
 
 # Verificando se a variável de treinamento existe, caso sim, executa o SQL
