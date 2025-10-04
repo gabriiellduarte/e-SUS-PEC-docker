@@ -89,7 +89,14 @@ RUN mkdir /backups
 RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
 
-COPY ./${JAR_FILENAME} ${JAR_FILENAME}
+# Instala wget caso não tenha
+RUN apt-get update && apt-get install -y wget
+
+# Baixa o arquivo direto
+RUN wget -O eSUS-AB-PEC-5.4.14-Linux64.jar \
+    https://arquivos.esusab.ufsc.br/PEC/47e59632f06a1ea6/5.4.14/eSUS-AB-PEC-5.4.14-Linux64.jar
+
+#COPY ./${JAR_FILENAME} ${JAR_FILENAME}
 COPY ./install.sh .
 
 # Copiando arquivos de backup
