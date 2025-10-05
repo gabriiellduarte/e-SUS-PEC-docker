@@ -37,9 +37,6 @@ Utilize `sh build.sh --help` para mais opções, por exemplo, para instalar a ve
 sh build.sh -e
 ```
 
-Acesse [Live/Demo](https://dev.esus.noharm.ai) **Usuário:** 969.744.190-15 **Senha:** senha123  
-Dúvidas? Colaboração? Ideias? Entre em contato pelo [WhatsApp](https://wa.me/5571986056232?text=Gostaria+de+informa%C3%A7%C3%B5es+sobre+o+projeto+PEC+SUS)
-
 ## Sumário
 
 1. [Alinhando conhecimentos](#alinhando-conhecimentos)
@@ -84,10 +81,13 @@ Para instalação foi criado um script que posse ser executado copiando o bloco 
 ```sh
 wget https://arquivos.esusab.ufsc.br/PEC/mtRazOmMxfBpkEMK/5.2.28/eSUS-AB-PEC-5.2.28-Linux64.jar
 ```
+Agora observe que na pasta estará o arquivo baixado
+siga para a parte 2
 
 Gostaria de migrar de outro banco de dados? [Acesse a seção de migração](#migrando-versao)
 
 ### 2. Rode o script para instalar o pacote baixado e criar o container
+Antes de continuar lembre-se de ter configurado o arquivo .env
 
 ```sh
 sh build.sh -f eSUS-AB-PEC-5.2.28-Linux64.jar
@@ -186,7 +186,7 @@ docker compose exec -it pec java jar esus-pec.jar -help
 
 Para mais informações.
 
-2. Após isso, se seu banco de dados for externo, basta executar
+2. Após isso, se seu banco de dados for local, basta executar
 
 ```sh
 sh update.sh docker-compose.local-db.yml

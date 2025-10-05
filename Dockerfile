@@ -56,18 +56,7 @@ RUN echo '#!/bin/sh' > /bin/systemctl && \
     echo 'esac' >> /bin/systemctl && \
     chmod +x /bin/systemctl
 
-    
-# Defina o nome do JAR como ARG (você pode passar na hora do build)
-ARG JAR_URL=https://arquivos.esusab.ufsc.br/PEC/47e59632f06a1ea6/5.4.14/eSUS-AB-PEC-5.4.14-Linux64.jar
-
-# Diretório de trabalho
-#WORKDIR /opt/e-SUS/webserver
-
-
-
-ARG JAR_FILENAME=eSUS-AB-PEC-5.4.14-Linux64.jar
-ARG JAR_URL=https://arquivos.esusab.ufsc.br/PEC/47e59632f06a1ea6/5.4.14/eSUS-AB-PEC-5.4.14-Linux64.jar
-
+ARG JAR_FILENAME
 ARG HTTPS_DOMAIN
 ARG DB_URL
 ARG POSTGRES_PASS
@@ -76,7 +65,6 @@ ARG TRAINING
 
 # Promovendo ARGS para ENV para uso no install.sh que roda dentro do entrypoint.sh e precisa dessas variáveis
 ENV JAR_FILENAME=${JAR_FILENAME}
-ENV JAR_URL=${JAR_URL}
 ENV TRAINING=${TRAINING}
 ENV DB_URL=${DB_URL}
 ENV POSTGRES_PASS=${POSTGRES_PASS}
@@ -89,14 +77,7 @@ RUN mkdir /backups
 RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
 
-# Instala wget caso não tenha
-RUN apt-get update && apt-get install -y wget
-
-# Baixa o arquivo direto
-RUN wget -O eSUS-AB-PEC-5.4.14-Linux64.jar \
-    https://arquivos.esusab.ufsc.br/PEC/47e59632f06a1ea6/5.4.14/eSUS-AB-PEC-5.4.14-Linux64.jar
-
-#COPY ./${JAR_FILENAME} ${JAR_FILENAME}
+COPY ./${JAR_FILENAME} ${JAR_FILENAME}
 COPY ./install.sh .
 
 # Copiando arquivos de backup
